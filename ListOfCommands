@@ -1,0 +1,5 @@
+in OracleDB there are 2 super users: system and sys
+they have a password 'oracle'
+--> conn user/password
+
+How to check with which user you are connected: SHOW USER;
