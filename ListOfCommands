@@ -1,5 +1,11 @@
 in OracleDB there are 2 super users: system and sys
 they have a password 'oracle'
 --> conn user/password
-
+If you cannot connect to the session: close the terminal and wait to see on the window "Username?"
 How to check with which user you are connected: SHOW USER;
+--> alter session set container=cdb$root;
+--> alter database open;
+To get the needed disk space to archive DB 
+--> select sum(sum_bytes)/1024/1024 m_bytes from ( select sum(bytes) sum_bytes from v$datafile union select sum(bytes) sum_bytes from v$tempfile union select (sum(bytes) * members) sum_bytes from v$log group by members);
+Information for files and their location
+--> select name from v$datafile union select name from v$controlfile union select name from v$tempfile union select member from v$logfile;
